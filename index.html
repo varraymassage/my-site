@@ -1060,5 +1060,52 @@
             </div>
         </div>
     </div>
+<div id="march-popup">
+  <div class="popup-content">
+    <h2>🏀 March Madness Special</h2>
+    <p><strong>Buy One Massage — Get One FREE</strong></p>
+    <p>Purchase any massage during March and receive a second massage free.</p>
+    <p><small>Free massage must be used within 60 days of purchase.</small></p>
+    <a href="BOOKING-LINK" class="popup-btn">Book Now</a>
+    <span class="close">&times;</span>
+  </div>
+</div>
+
+<style>
+#march-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 300px;
+  font-family: sans-serif;
+  z-index: 9999;
+}
+.popup-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #d4af37;
+  color: black;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+document.querySelector("#march-popup .close").onclick = function() {
+  document.getElementById("march-popup").style.display = "none";
+};
+</script>
 </body>
 </html>
