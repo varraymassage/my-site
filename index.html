@@ -1060,52 +1060,139 @@
             </div>
         </div>
     </div>
-<div id="march-popup">
-  <div class="popup-content">
-    <h2>🏀 March Madness Special</h2>
-    <p><strong>Buy One Massage — Get One FREE</strong></p>
-    <p>Purchase any massage during March and receive a second massage free.</p>
-    <p><small>Free massage must be used within 60 days of purchase.</small></p>
-    <a href="BOOKING-LINK" class="popup-btn">Book Now</a>
-    <span class="close">&times;</span>
+<div id="march-popup" class="march-popup-hidden">
+  <div class="march-popup-content">
+    <button id="close-popup" class="march-popup-close" aria-label="Close popup">&times;</button>
+    <p class="march-popup-kicker">March Madness Deal</p>
+    <h2>Buy 1 Massage, Get 1 Free</h2>
+    <p>
+      For the month of March, purchase any massage and receive a second massage
+      free.
+    </p>
+    <p class="march-popup-small">
+      Free massage must be used within 60 days of purchase.
+    </p>
+    <a href="#book" class="march-popup-btn">Book Now</a>
   </div>
 </div>
 
 <style>
-#march-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0,0,0,0.85);
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 300px;
-  font-family: sans-serif;
-  z-index: 9999;
-}
-.popup-btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: #d4af37;
-  color: black;
-  padding: 10px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.close {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  cursor: pointer;
-}
+  .march-popup-hidden {
+    display: none;
+  }
+
+  #march-popup {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: min(360px, calc(100% - 32px));
+    z-index: 99999;
+  }
+
+  .march-popup-content {
+    position: relative;
+    background: linear-gradient(145deg, rgba(30, 24, 40, 0.96), rgba(15, 12, 25, 0.98));
+    color: white;
+    padding: 24px 22px 20px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .march-popup-kicker {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #d6c7e5;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+  }
+
+  .march-popup-content h2 {
+    margin: 0 0 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    line-height: 1.1;
+    color: white;
+  }
+
+  .march-popup-content p {
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .march-popup-small {
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+  }
+
+  .march-popup-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background: #ffffff;
+    color: #4a3b59;
+    padding: 12px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .march-popup-btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+  }
+
+  .march-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .march-popup-close:hover {
+    color: white;
+  }
+
+  @media (max-width: 640px) {
+    #march-popup {
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      width: auto;
+    }
+
+    .march-popup-content h2 {
+      font-size: 26px;
+    }
+  }
 </style>
 
 <script>
-document.querySelector("#march-popup .close").onclick = function() {
-  document.getElementById("march-popup").style.display = "none";
-};
+  document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.getElementById("march-popup");
+    const closeBtn = document.getElementById("close-popup");
+
+    if (popup) {
+      setTimeout(function () {
+        popup.style.display = "block";
+      }, 800);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+      });
+    }
+  });
 </script>
 </body>
 </html>
